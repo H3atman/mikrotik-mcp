@@ -12,6 +12,11 @@ from .user_tools import get_user_tools, get_user_handlers
 from .backup_tools import get_backup_tools, get_backup_handlers
 from .log_tools import get_log_tools, get_log_handlers
 from .wireless_tools import get_wireless_tools, get_wireless_handlers
+from .system_tools import get_system_tools, get_system_handlers
+from .bridge_tools import get_bridge_tools, get_bridge_handlers
+from .queue_tools import get_queue_tools, get_queue_handlers
+from .hotspot_tools import get_hotspot_tools, get_hotspot_handlers
+from .pppoe_tools import get_pppoe_tools, get_pppoe_handlers
 
 
 def get_all_tools() -> List[Tool]:
@@ -49,6 +54,21 @@ def get_all_tools() -> List[Tool]:
 
     # Log tools
     tools.extend(get_log_tools())
+
+    # System tools
+    tools.extend(get_system_tools())
+
+    # Bridge tools
+    tools.extend(get_bridge_tools())
+
+    # Queue tools
+    tools.extend(get_queue_tools())
+
+    # Hotspot tools
+    tools.extend(get_hotspot_tools())
+
+    # PPPoE tools
+    tools.extend(get_pppoe_tools())
 
     return tools
 
@@ -88,5 +108,20 @@ def get_all_handlers() -> Dict[str, Callable]:
 
     # Log handlers
     handlers.update(get_log_handlers())
+
+    # System handlers
+    handlers.update(get_system_handlers())
+
+    # Bridge handlers
+    handlers.update(get_bridge_handlers())
+
+    # Queue handlers
+    handlers.update(get_queue_handlers())
+
+    # Hotspot handlers
+    handlers.update(get_hotspot_handlers())
+
+    # PPPoE handlers
+    handlers.update(get_pppoe_handlers())
 
     return handlers
