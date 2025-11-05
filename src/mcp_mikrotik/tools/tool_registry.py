@@ -17,6 +17,7 @@ from .bridge_tools import get_bridge_tools, get_bridge_handlers
 from .queue_tools import get_queue_tools, get_queue_handlers
 from .hotspot_tools import get_hotspot_tools, get_hotspot_handlers
 from .pppoe_tools import get_pppoe_tools, get_pppoe_handlers
+from .routing_advanced_tools import get_routing_advanced_tools, get_routing_advanced_handlers
 
 
 def get_all_tools() -> List[Tool]:
@@ -69,6 +70,9 @@ def get_all_tools() -> List[Tool]:
 
     # PPPoE tools
     tools.extend(get_pppoe_tools())
+
+    # Advanced Routing tools (BGP, OSPF, RIP)
+    tools.extend(get_routing_advanced_tools())
 
     return tools
 
@@ -123,5 +127,8 @@ def get_all_handlers() -> Dict[str, Callable]:
 
     # PPPoE handlers
     handlers.update(get_pppoe_handlers())
+
+    # Advanced Routing handlers
+    handlers.update(get_routing_advanced_handlers())
 
     return handlers
